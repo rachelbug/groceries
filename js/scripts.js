@@ -1,9 +1,15 @@
 $(document).ready(function() {
 
+  var reveal = function() {
+    $("#response").fadeIn(10000);
+  };
+
   $("form#form").submit(function(event) {
 
     var groceries = ["item1", "item2", "item3", "item4"];
+
     var tightList = [];
+
 
     groceries.forEach(function(grocery) {
       var userInput = $("input#" + grocery).val();
@@ -16,12 +22,11 @@ $(document).ready(function() {
 
     superTightList.sort();
 
-    $("#form").fadeOut();
+    $("#form").fadeOut(5000, reveal);
 
     superTightList.forEach(function(list) {
       $("#response").append("<li>" + list + "</li>")
-    })
-
+    });
 
 
 
